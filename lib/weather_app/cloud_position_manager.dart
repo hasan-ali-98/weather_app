@@ -8,9 +8,9 @@ class CloudPosition {
 }
 
 class AppBoundriesDetails {
-  static late double maxWidth;
-  static late double maxHeight;
-  static late double factor;
+  static double maxWidth = 0;
+  static double maxHeight = 0;
+  static double factor = 0;
 
   static double bottomCloudStartOffsetBottom() {
     return 0.15 * maxWidth; //60

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
-import '../widgets/homescreen_widgets/clouds_with_animation.dart';
+import '../widgets/homescreen_widgets/animated_clouds.dart';
 import '../widgets/homescreen_widgets/text_button_column.dart';
 
 class WeatherHomescreen extends StatefulWidget {

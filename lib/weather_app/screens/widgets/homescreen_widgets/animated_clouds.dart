@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../../cloud_position_manager.dart';
 import '../../../constants.dart';
-import 'cloud_animted_object.dart';
 import 'cloud_image.dart';
+import 'cloud_object_details.dart';
 
 class AnimatedClouds extends StatelessWidget {
   const AnimatedClouds({
