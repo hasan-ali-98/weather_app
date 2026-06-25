@@ -11,10 +11,6 @@ class CloudObject extends StatelessWidget {
   final double? right;
   final double? bottom;
 
-  final double maxWidth;
-  final double maxHeigh;
-  final double factor;
-
   const CloudObject({
     this.child,
     super.key,
@@ -23,31 +19,18 @@ class CloudObject extends StatelessWidget {
     this.left,
     this.right,
     this.bottom,
-    required this.maxWidth,
-    required this.maxHeigh,
-    required this.factor,
+
     required this.cloudMathFormula,
   });
 
-  final CloudPosition Function(
-    double maxWidth,
-    double maxHeigh,
-    double factor,
-    double animationValue,
-  )
-  cloudMathFormula;
+  final CloudPosition Function(double animationValue) cloudMathFormula;
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: cloudAnimation,
       builder: (context, preBuiltCloud) {
-        final cloudPosition = cloudMathFormula(
-          maxWidth,
-          maxHeigh,
-          factor,
-          cloudAnimation.value,
-        );
+        final cloudPosition = cloudMathFormula(cloudAnimation.value);
         return Positioned(
           top: cloudPosition.top,
           left: cloudPosition.left,

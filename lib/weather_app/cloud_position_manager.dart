@@ -7,64 +7,80 @@ class CloudPosition {
   CloudPosition({this.left, this.top, this.bottom, this.right});
 }
 
-class cloudFormula {
-  static CloudPosition Cloud1Math(
-    double maxWidth,
-    double maxHeigh,
-    double factor,
-    double animationValue,
-  ) {
+class AppBoundriesDetails {
+  static late double maxWidth;
+  static late double maxHeight;
+  static late double factor;
+
+  static double bottomCloudStartOffsetBottom() {
+    return 0.15 * maxWidth; //60
+  }
+
+  static double calculateHorizontalOffset() {
+    return 0.5 * maxWidth; //200
+  }
+
+  static double animatedCloudsStartOffsetLeftRight() {
+    return 2 * maxWidth;
+  }
+
+  static void initialize({
+    required double maxWidth,
+    required double maxHeight,
+    required double factor,
+  }) {
+    AppBoundriesDetails.maxWidth = maxWidth;
+    AppBoundriesDetails.maxHeight = maxHeight;
+    AppBoundriesDetails.factor = factor;
+  }
+}
+
+class CloudFormula {
+  static CloudPosition cloud1Math(double animationValue) {
     return CloudPosition(
-      top: maxHeigh * factor,
-      left: 2 * maxWidth * animationValue - maxWidth * 0.765,
+      top: AppBoundriesDetails.maxHeight * AppBoundriesDetails.factor,
+      left:
+          AppBoundriesDetails.animatedCloudsStartOffsetLeftRight() *
+              animationValue -
+          AppBoundriesDetails.maxWidth * 0.765,
     );
   }
 
-  static CloudPosition Cloud2Math(
-    double maxWidth,
-    double maxHeigh,
-    double factor,
-    double animationValue,
-  ) {
+  static CloudPosition cloud2Math(double animationValue) {
     return CloudPosition(
-      top: maxHeigh * (factor + 0.05),
-      right: 2 * maxWidth * animationValue - (maxWidth * 0.765),
+      top: AppBoundriesDetails.maxHeight * (AppBoundriesDetails.factor + 0.05),
+      right:
+          AppBoundriesDetails.animatedCloudsStartOffsetLeftRight() *
+              animationValue -
+          (AppBoundriesDetails.maxWidth * 0.765),
     );
   }
 
-  static CloudPosition Cloud3Math(
-    double maxWidth,
-    double maxHeigh,
-    double factor,
-    double animationValue,
-  ) {
+  static CloudPosition cloud3Math(double animationValue) {
     return CloudPosition(
-      top: maxHeigh * (factor + 0.1),
-      left: 2 * maxWidth * animationValue - maxWidth * 0.765,
+      top: AppBoundriesDetails.maxHeight * (AppBoundriesDetails.factor + 0.1),
+      left:
+          AppBoundriesDetails.animatedCloudsStartOffsetLeftRight() *
+              animationValue -
+          AppBoundriesDetails.maxWidth * 0.765,
     );
   }
 
-  static CloudPosition CloudBottomLeftMath(
-    double maxWidth,
-    double maxHeigh,
-    double factor,
-    double animationValue,
-  ) {
+  static CloudPosition cloudBottomLeftMath(double animationValue) {
     return CloudPosition(
-      bottom: -40.0 + ((animationValue - maxWidth * 0.1) / 2),
-      left: -150.0 + (animationValue - maxWidth * 0.1),
+      bottom:
+          -AppBoundriesDetails.bottomCloudStartOffsetBottom() +
+          ((animationValue) / 2),
+      left: -AppBoundriesDetails.calculateHorizontalOffset() + (animationValue),
     );
   }
 
-  static CloudPosition CloudBottomRightMath(
-    double maxWidth,
-    double maxHeigh,
-    double factor,
-    double animationValue,
-  ) {
+  static CloudPosition cloudBottomRightMath(double animationValue) {
     return CloudPosition(
-      bottom: -70.0 + (animationValue / 2),
-      right: -200.0 + animationValue,
+      bottom:
+          -AppBoundriesDetails.bottomCloudStartOffsetBottom() +
+          (animationValue / 2),
+      right: -AppBoundriesDetails.calculateHorizontalOffset() + animationValue,
     );
   }
 }

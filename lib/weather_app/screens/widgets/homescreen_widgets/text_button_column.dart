@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-class textButtonColumn extends StatelessWidget {
-  const textButtonColumn({super.key, required this.size});
+class TextButtonColumn extends StatelessWidget {
+  const TextButtonColumn({super.key, required this.size});
 
   final Size size;
 

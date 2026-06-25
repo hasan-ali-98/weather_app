@@ -99,7 +99,7 @@ class _WeatherHomescreenState extends State<WeatherHomescreen>
               bottomCloudAnimation: bottomCloudAnimation,
             ),
 
-            textButtonColumn(size: size),
+            TextButtonColumn(size: size),
           ],
         ),
       ),

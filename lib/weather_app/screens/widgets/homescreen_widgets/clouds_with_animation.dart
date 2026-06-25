@@ -32,13 +32,15 @@ class AnimatedClouds extends StatelessWidget {
         double maxWidth = constraints.maxWidth;
         double maxHeight = constraints.maxHeight;
 
+        AppBoundriesDetails.initialize(
+          maxWidth: maxWidth,
+          maxHeight: maxHeight,
+          factor: topSpaceFactor,
+        );
         return Stack(
           children: [
             CloudObject(
-              cloudMathFormula: cloudFormula.Cloud1Math,
-              maxWidth: maxWidth,
-              maxHeigh: maxHeight,
-              factor: topSpaceFactor,
+              cloudMathFormula: CloudFormula.cloud1Math,
 
               cloudAnimation: topCloudAnimation1,
               child: CloudImage(
@@ -48,10 +50,7 @@ class AnimatedClouds extends StatelessWidget {
             ),
 
             CloudObject(
-              cloudMathFormula: cloudFormula.Cloud2Math,
-              factor: topSpaceFactor,
-              maxWidth: maxWidth,
-              maxHeigh: maxHeight,
+              cloudMathFormula: CloudFormula.cloud2Math,
 
               cloudAnimation: topCloudAnimation1,
               child: CloudImage(
@@ -61,10 +60,7 @@ class AnimatedClouds extends StatelessWidget {
             ),
 
             CloudObject(
-              cloudMathFormula: cloudFormula.Cloud3Math,
-              factor: topSpaceFactor,
-              maxWidth: maxWidth,
-              maxHeigh: maxHeight,
+              cloudMathFormula: CloudFormula.cloud3Math,
 
               cloudAnimation: topCloudAnimation1,
               child: CloudImage(
@@ -78,10 +74,7 @@ class AnimatedClouds extends StatelessWidget {
               child: Container(color: Colors.white.withAlpha(35)),
             ),
             CloudObject(
-              cloudMathFormula: cloudFormula.CloudBottomLeftMath,
-              factor: topSpaceFactor,
-              maxWidth: maxWidth,
-              maxHeigh: maxHeight,
+              cloudMathFormula: CloudFormula.cloudBottomLeftMath,
 
               cloudAnimation: bottomCloudAnimation,
               child: CloudImage(
@@ -89,12 +82,8 @@ class AnimatedClouds extends StatelessWidget {
                 imageName: AppConstants.cloud3,
               ),
             ),
-
             CloudObject(
-              cloudMathFormula: cloudFormula.CloudBottomRightMath,
-              factor: topSpaceFactor,
-              maxWidth: maxWidth,
-              maxHeigh: maxHeight,
+              cloudMathFormula: CloudFormula.cloudBottomRightMath,
 
               cloudAnimation: bottomCloudAnimation,
               child: CloudImage(
