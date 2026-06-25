@@ -19,7 +19,7 @@ class _WeatherHomescreenState extends State<WeatherHomescreen>
       topCloudAnimation2,
       bottomCloudAnimation;
 
-  double topSpaceFactor = 0.11, topSpaceFactor2 = 0.17, topSpaceFactor3 = 0.21;
+  double topSpaceFactor = 0.11;
 
   @override
   void initState() {
@@ -99,7 +99,7 @@ class _WeatherHomescreenState extends State<WeatherHomescreen>
               bottomCloudAnimation: bottomCloudAnimation,
             ),
 
-            buildTextandButtonColumn(size),
+            textButtonColumn(size: size),
           ],
         ),
       ),

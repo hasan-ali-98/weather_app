@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../../cloud_position_manager.dart';
 import '../../../constants.dart';
 import 'cloud_animted_object.dart';
 import 'cloud_image.dart';
@@ -34,13 +35,10 @@ class AnimatedClouds extends StatelessWidget {
         return Stack(
           children: [
             CloudObject(
-              top: () {
-                return maxHeight * topSpaceFactor;
-              },
-              left: () {
-                return 2 * maxWidth * topCloudAnimation1.value -
-                    maxWidth * 0.765;
-              },
+              cloudMathFormula: cloudFormula.Cloud1Math,
+              maxWidth: maxWidth,
+              maxHeigh: maxHeight,
+              factor: topSpaceFactor,
 
               cloudAnimation: topCloudAnimation1,
               child: CloudImage(
@@ -50,15 +48,12 @@ class AnimatedClouds extends StatelessWidget {
             ),
 
             CloudObject(
-              top: () {
-                return maxHeight * (topSpaceFactor + 0.05);
-              },
+              cloudMathFormula: cloudFormula.Cloud2Math,
+              factor: topSpaceFactor,
+              maxWidth: maxWidth,
+              maxHeigh: maxHeight,
 
-              right: () {
-                return 2 * maxWidth * topCloudAnimation1.value -
-                    maxWidth * 0.765;
-              },
-              cloudAnimation: topCloudAnimation2,
+              cloudAnimation: topCloudAnimation1,
               child: CloudImage(
                 maxWidth: maxWidth,
                 imageName: AppConstants.cloud2,
@@ -66,16 +61,12 @@ class AnimatedClouds extends StatelessWidget {
             ),
 
             CloudObject(
+              cloudMathFormula: cloudFormula.Cloud3Math,
+              factor: topSpaceFactor,
+              maxWidth: maxWidth,
+              maxHeigh: maxHeight,
+
               cloudAnimation: topCloudAnimation1,
-
-              top: () {
-                return maxHeight * (topSpaceFactor + 0.1);
-              },
-              left: () {
-                return 2 * maxWidth * topCloudAnimation1.value -
-                    maxWidth * 0.765;
-              },
-
               child: CloudImage(
                 maxWidth: maxWidth,
                 imageName: AppConstants.cloud3,
@@ -86,34 +77,26 @@ class AnimatedClouds extends StatelessWidget {
               filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
               child: Container(color: Colors.white.withAlpha(35)),
             ),
-
-            // left cloud
             CloudObject(
+              cloudMathFormula: cloudFormula.CloudBottomLeftMath,
+              factor: topSpaceFactor,
+              maxWidth: maxWidth,
+              maxHeigh: maxHeight,
+
               cloudAnimation: bottomCloudAnimation,
-
-              left: () {
-                return -150.0 + (bottomCloudAnimation.value - maxWidth * 0.1);
-              },
-
-              bottom: () {
-                return -40.0 +
-                    ((bottomCloudAnimation.value - maxWidth * 0.1) / 2);
-              },
               child: CloudImage(
                 maxWidth: maxWidth,
                 imageName: AppConstants.cloud3,
               ),
             ),
+
             CloudObject(
+              cloudMathFormula: cloudFormula.CloudBottomRightMath,
+              factor: topSpaceFactor,
+              maxWidth: maxWidth,
+              maxHeigh: maxHeight,
+
               cloudAnimation: bottomCloudAnimation,
-
-              right: () {
-                return -200.0 + bottomCloudAnimation.value;
-              },
-              bottom: () {
-                return -70.0 + (bottomCloudAnimation.value / 2);
-              },
-
               child: CloudImage(
                 maxWidth: maxWidth,
                 imageName: AppConstants.cloud3,
